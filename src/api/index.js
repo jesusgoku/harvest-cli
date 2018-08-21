@@ -9,13 +9,62 @@ const axios = _axios.create({
   },
 });
 
+function handleData(res) {
+  return res.data;
+}
+
 function me() {
   return axios
-    .get('users/me.json')
-    .then(res => res.data)
+    .get('users/me')
+    .then(handleData)
+  ;
+}
+
+function meProjectAssignments() {
+  return axios
+    .get('/users/me/project_assignments')
+    .then(handleData)
+  ;
+}
+
+function projects() {
+  return axios
+    .get('/projects')
+    .then(handleData)
+  ;
+}
+
+function projectTasks(projectId) {
+  return axios
+    .get(`/projects/${projectId}/task_assignments`)
+    .then(handleData)
+  ;
+}
+
+function timeEntries() {
+  return axios
+    .get('/time_entries')
+    .then(handleData)
+  ;
+}
+
+function createTimeEntry(project_id, task_id, spent_date, hours) {
+  return axios
+    .post('/time_entries', {
+      project_id,
+      task_id,
+      spent_date,
+      hours,
+    })
+    .then(handleData)
   ;
 }
 
 module.exports = {
   me,
+  meProjectAssignments,
+  projects,
+  projectTasks,
+  timeEntries,
+  createTimeEntry,
 };

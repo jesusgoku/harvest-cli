@@ -1,9 +1,17 @@
 {
+  "author": {
+    "name": "Jesús Urrutia",
+    "email": "jesus.urrutia@gmail.com",
+    "url": "https://jesusurrutia.com"
+  },
+  "license": "MIT",
   "scripts": {
     "start": "node -r dotenv/config src/index.js"
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "dotenv": "^6.0.0"
+    "commander": "^2.17.1",
+    "dotenv": "^6.0.0",
+    "table": "^4.0.3"
   }
 }
